@@ -103,7 +103,7 @@
 </build>
    
  <repositories>
-  <!-- ... possibly other repository elements ... -->
+  <!-- ... possibly other repository elements ...Checking pom -->
         <repository>
             <id>spring-snapshot</id>
             <name>Spring Snapshot Repository</name>
