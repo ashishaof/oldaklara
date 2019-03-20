@@ -28,6 +28,6 @@
     
   <modules>
     <module>wedding-web</module>
-    <module>mavenproject1</module>
+    
   </modules>
 </project>
