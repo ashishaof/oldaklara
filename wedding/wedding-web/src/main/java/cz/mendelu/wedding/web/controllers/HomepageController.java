@@ -24,8 +24,7 @@ public class HomepageController {
         
         
         
-        
-        return "nonsense";
+        return "index";
     }
 
 }
