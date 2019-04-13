@@ -8,13 +8,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <parent>
-        <groupId>io.spring.platform</groupId>
-        <artifactId>platform-bom</artifactId>
-        <version>1.1.4.RELEASE</version>
-        <relativePath/>
-    </parent>
-    
     <dependencyManagement>
         <dependencies>
             <dependency>
