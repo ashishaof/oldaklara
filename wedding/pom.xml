@@ -28,6 +28,6 @@
     
   <modules>
     <module>wedding-web</module>
-    
+    <module>wedding-DAO</module>
   </modules>
 </project>
