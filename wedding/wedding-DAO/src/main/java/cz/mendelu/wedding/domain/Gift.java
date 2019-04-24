@@ -26,6 +26,18 @@ public class Gift {
     private String name;
     
     private String description;
+    
+    
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Guest guest;
+
+    public Guest getGuest() {
+        return guest;
+    }
+
+    public void setGuest(Guest guest) {
+        this.guest = guest;
+    }
 
     public Gift(String name, String description) {
         this.name = name;
@@ -60,9 +72,10 @@ public class Gift {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.name);
-        hash = 53 * hash + Objects.hashCode(this.description);
+        int hash = 7;
+        hash = 13 * hash + Objects.hashCode(this.name);
+        hash = 13 * hash + Objects.hashCode(this.description);
+        hash = 13 * hash + Objects.hashCode(this.guest);
         return hash;
     }
 
@@ -81,8 +94,13 @@ public class Gift {
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
+        if (!Objects.equals(this.guest, other.guest)) {
+            return false;
+        }
         return true;
     }
+
+   
     
     
     

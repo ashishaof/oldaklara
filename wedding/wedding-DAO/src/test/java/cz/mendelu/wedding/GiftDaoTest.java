@@ -6,7 +6,9 @@
 package cz.mendelu.wedding;
 
 import cz.mendelu.wedding.dao.GiftDAO;
+import cz.mendelu.wedding.dao.GuestDAO;
 import cz.mendelu.wedding.domain.Gift;
+import cz.mendelu.wedding.domain.Guest;
 import cz.mendelu.wedding.utils.DatabaseConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -28,7 +30,8 @@ public class GiftDaoTest extends AbstractTestNGSpringContextTests{
     
     @Autowired
     private GiftDAO giftDao;
-    
+    @Autowired
+    private GuestDAO guestDao;
     @Test
     public void testSave() {
         Gift g=new Gift("tv","smartTV");
@@ -36,6 +39,19 @@ public class GiftDaoTest extends AbstractTestNGSpringContextTests{
         
         Gift result = giftDao.findById(g.getId());
         assertEquals(g, result);
+    }
+    @Test
+    public void testSaveWithGuest() {
+        Gift gift=new Gift("tv","smartTV");
+        giftDao.save(gift);
+        Guest guest=new Guest("ashish","ashish@gmail.com","1213456");
+        guestDao.save(guest);
+        Gift result = giftDao.findById(gift.getId());
+        result.setGuest(guest);
+        giftDao.save(result);
+        Gift result1 = giftDao.findById(gift.getId());
+        assertEquals(result, result1);
+        
     }
     
     

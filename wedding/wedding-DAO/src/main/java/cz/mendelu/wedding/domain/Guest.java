@@ -30,13 +30,28 @@ public class Guest {
     private String email;
 
     private String password;
-
+    
+    
+    @OneToOne
+    private Gift gift;
+    
+    
     public Guest(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
     }
 
+    public Gift getGift() {
+        return gift;
+    }
+
+    public void setGift(Gift gift) {
+        this.gift = gift;
+    }
+
+    
+    
     public String getEmail() {
         return email;
     }
@@ -74,10 +89,11 @@ public class Guest {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.name);
-        hash = 97 * hash + Objects.hashCode(this.email);
-        hash = 97 * hash + Objects.hashCode(this.password);
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.name);
+        hash = 89 * hash + Objects.hashCode(this.email);
+        hash = 89 * hash + Objects.hashCode(this.password);
+        hash = 89 * hash + Objects.hashCode(this.gift);
         return hash;
     }
 
@@ -99,8 +115,13 @@ public class Guest {
         if (!Objects.equals(this.password, other.password)) {
             return false;
         }
+        if (!Objects.equals(this.gift, other.gift)) {
+            return false;
+        }
         return true;
     }
+
+ 
 
 
 
