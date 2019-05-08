@@ -16,14 +16,9 @@ import java.util.List;
 @RequestMapping("/")
 public class HomepageController {
 
-   
-
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model, Principal principal) {
-       
-        
-        
-        
+
         return "index";
     }
 

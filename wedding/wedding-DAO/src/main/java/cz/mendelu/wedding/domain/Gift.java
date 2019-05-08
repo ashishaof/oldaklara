@@ -28,7 +28,7 @@ public class Gift {
     private String description;
     
     
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(mappedBy = "gift")
     private Guest guest;
 
     public Guest getGuest() {

@@ -10,6 +10,7 @@ package cz.mendelu.wedding.web.config;
  * @author BAKSHI
  */
 
+import cz.mendelu.wedding.utils.DatabaseConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -26,10 +27,16 @@ import javax.validation.Validator;
 
 @EnableWebMvc
 @Configuration
+@Import(DatabaseConfig.class)
 @ComponentScan(basePackages = "cz.mendelu.wedding.web")
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
 
+
+   @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/login").setViewName("login");
+    }
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
@@ -48,5 +55,4 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     public Validator validator() {
         return new LocalValidatorFactoryBean();
     }
-
 }

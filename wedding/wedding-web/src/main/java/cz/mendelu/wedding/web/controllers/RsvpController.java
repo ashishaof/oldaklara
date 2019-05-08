@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.security.Principal;
 import java.util.List;
 @Controller
-@RequestMapping("/")
+@RequestMapping("/rsvp")
 
 public class RsvpController {
     @RequestMapping(method = RequestMethod.GET)

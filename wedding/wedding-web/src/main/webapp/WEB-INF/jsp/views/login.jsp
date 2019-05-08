@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
-    <title>Login | Pokémon League</title>
+    <title>Login</title>
 
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/favicon.png">
 
