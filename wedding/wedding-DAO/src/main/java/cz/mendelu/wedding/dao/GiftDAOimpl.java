@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 /**
  *
  * @author BAKSHI

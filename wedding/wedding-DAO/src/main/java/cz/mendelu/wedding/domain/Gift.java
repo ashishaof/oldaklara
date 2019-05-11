@@ -100,9 +100,11 @@ public class Gift {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Gift{" + "id=" + id + ", name=" + name + ", description=" + description + ", guest=" + guest + '}';
+    }
    
-    
-    
-    
-            
+   
+             
 }

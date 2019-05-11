@@ -28,12 +28,6 @@
             <div class="alert alert-success" role="alert"><c:out value="${alert_success}"/></div>
         </c:if>
 
-        <c:if test="${param.role ne null}">
-            <div class="alert alert-info">
-                Your role was changed to Gym Leader. You need to sign in again to see the changes.
-            </div>
-        </c:if>
-
         <c:if test="${param.error ne null}">
             <div class="alert alert-danger">
                 Invalid username or password.
