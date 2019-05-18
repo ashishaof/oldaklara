@@ -14,15 +14,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/rg")
 @Transactional
 public class RegularPageController {
 
     @Autowired
     private GiftDAO giftDAO;
-
-    @RequestMapping(method = RequestMethod.GET)
+    
+    @RequestMapping(value ="/rg",method = RequestMethod.GET)
     public String regularPage(Model model, Principal principal) {
+       
+        List<Gift> gifts = giftDAO.findAll();
+        System.out.println(gifts);
+        model.addAttribute("gifts", gifts);
+
+        return "03-regular-page";
+    }
+    
+    
+    @RequestMapping(value ="/rg/save",method = RequestMethod.POST)
+    public String saveForm(Model model, Principal principal) {
        
         List<Gift> gifts = giftDAO.findAll();
         System.out.println(gifts);

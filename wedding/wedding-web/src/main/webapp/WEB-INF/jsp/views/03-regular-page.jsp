@@ -5,6 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <html lang="en">
     <head>
         <title>TITLE</title>
@@ -86,25 +88,50 @@
 
                         <div class="content">
 
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                 
-                                </tr>
-                                <c:forEach items="${gifts}" var="gift">
+                            <form:form method="post" action="${pageContext.request.contextPath}/rg/save" modelAttribute="gift"
+                                       cssClass="form-horizontal">
+                                <div class="form-group">
+                                    <form:label path="nickname" cssClass="col-sm-2 control-label">I will attend lunch</form:label>
+                                        <div class="col-sm-10">
+                                       <input type="checkbox" name="lunch" value="lunch"/> 
+                                       
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <form:label path="nickname" cssClass="col-sm-2 control-label">I will attend party</form:label>
+                                        <div class="col-sm-10">
+                                        <input type="checkbox" name="party" value="party"/> 
+                                       
+                                    </div>
+                                </div>
+                                
+                                
+                                <table class="table table-bordered">
                                     <tr>
-                                        
-                                    <td class="col-xs-1"><c:out value="${gift.name}"/></td>
-                                    <td class="col-xs-1"><c:out value="${gift.description}"/></td>
-                                  
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>select</th>
+
                                     </tr>
-                                </c:forEach>
-                            </table>
-                                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="${pageContext.request.contextPath}/logout"><i class="fa fa-power-off"></i> Log out</a>
-                </li>
-            </ul>
+                                    <c:forEach items="${gifts}" var="gift">
+                                        <tr>
+
+                                            <td class="col-xs-1"><c:out value="${gift.name}"/></td>
+                                            <td class="col-xs-1"><c:out value="${gift.description}"/></td>
+                                            <td class="col-xs-1"><input type="radio" name="selectedgift" value="${gift.id}"/></td>
+                                        </tr>
+                                    </c:forEach>
+                                </table>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <input type="submit" value="Save" class="btn btn-primary">
+                                    </div>
+                                </div>
+                            </form:form>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="${pageContext.request.contextPath}/logout"><i class="fa fa-power-off"></i> Log out</a>
+                                </li>
+                            </ul>
 
                         </div><!-- content -->
 
