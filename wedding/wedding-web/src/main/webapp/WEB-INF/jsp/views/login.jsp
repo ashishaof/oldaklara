@@ -1,64 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-
-    <title>Login</title>
-
-    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/favicon.png">
-
-    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/css/pkmnleague.css" rel="stylesheet">
-</head>
-
-<body class="login-page">
-
-<div class="container">
-
-    <form name="f" action="${pageContext.request.contextPath}/login" method="post" class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-
-        <c:if test="${not empty alert_success}">
-            <div class="alert alert-success" role="alert"><c:out value="${alert_success}"/></div>
-        </c:if>
-
-        <c:if test="${param.error ne null}">
-            <div class="alert alert-danger">
-                Invalid username or password.
-            </div>
-        </c:if>
-
-        <c:if test="${param.logout ne null}">
-            <div class="alert alert-info">
-                You have been logged out.
-            </div>
-        </c:if>
-
-
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <input type="email" id="username" name="username" class="form-control" placeholder="Email address" required
-               autofocus>
-        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <br>
-        
-
-    </form>
-
-</div>
-
-</body>
-</html>
-
-
-
 <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -99,25 +40,7 @@
 
                 <ul class="main-menu visible-on-click" id="main-menu">
                     <li><a href="index.html">HOME</a></li>
-                    <li class="drop-down"><a href="#!">OUR STORIES<i class="icon icon-caret-down"></i></a>
-
-                        <ul class="drop-down-menu">
-                            <li><a href="#">FEATURED</a></li>
-                            <li><a href="#">ABOUT</a></li>
-                            <li class="drop-down"><a href="#!">CATEGORIES<i class="icon icon-caret-right"></i></a>
-                                <ul class="drop-down-menu drop-down-inner">
-                                    <li><a href="#">FEATURED</a></li>
-                                    <li><a href="#">ABOUT</a></li>
-                                    <li><a href="#">CATEGORIES</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    </li>
-
-                    <li><a href="03-regular-page.html">THER WEDDING</a></li>
-                    <li><a href="#">GELLERY</a></li>
-                    <li><a href="02-rsvp.html">RSVP</a></li>
+                  
                 </ul><!-- main-menu -->
 
             </div><!-- container -->
@@ -129,7 +52,7 @@
                 <div class="display-table-cell">
                     <div class="slider-content">
 
-                        <h1 class="title">Gift List</h1>
+                        <h1 class="title">Log in</h1>
 
 
                     </div><!-- slider-content-->
@@ -145,25 +68,38 @@
 
                         <div class="content">
 
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                 
-                                </tr>
-                                <c:forEach items="${gifts}" var="gift">
-                                    <tr>
-                                        
-                                    <td class="col-xs-1"><c:out value="${gift.name}"/></td>
-                                    <td class="col-xs-1"><c:out value="${gift.description}"/></td>
-                                  
-                                    </tr>
-                                </c:forEach>
-                            </table>
-                                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="${pageContext.request.contextPath}/logout"><i class="fa fa-power-off"></i> Log out</a>
-                </li>
-            </ul>
+
+                            <form name="f" action="${pageContext.request.contextPath}/login" method="post" class="form-signin">
+                                <h2 class="form-signin-heading">Please sign in</h2>
+
+                                <c:if test="${not empty alert_success}">
+                                    <div class="alert alert-success" role="alert"><c:out value="${alert_success}"/></div>
+                                </c:if>
+
+                                <c:if test="${param.error ne null}">
+                                    <div class="alert alert-danger">
+                                        Invalid username or password.
+                                    </div>
+                                </c:if>
+
+                                <c:if test="${param.logout ne null}">
+                                    <div class="alert alert-info">
+                                        You have been logged out.
+                                    </div>
+                                </c:if>
+
+
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <input type="email" id="username" name="username" class="form-control" placeholder="Email address" required
+                                       autofocus>
+                                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                                <br>
+
+
+                            </form>
+                          
 
                         </div><!-- content -->
 

@@ -40,9 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
       
       http.authorizeRequests()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/rg").authenticated()
+                .antMatchers("/guestpage").authenticated()
                 .and()
-                .formLogin().loginPage("/login").failureUrl("/login?error").defaultSuccessUrl("/rg", true).permitAll()
+                .formLogin().loginPage("/login").failureUrl("/login?error").defaultSuccessUrl("/guestpage", true).permitAll()
                 .and()
                 .logout().logoutUrl("/logout").logoutSuccessUrl("/login?logout").permitAll();
     }

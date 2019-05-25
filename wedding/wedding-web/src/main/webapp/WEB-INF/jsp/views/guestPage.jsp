@@ -20,9 +20,10 @@
         <link href="https://fonts.googleapis.com/css?family=Playball%7CBitter" rel="stylesheet">
 
         <!-- Stylesheets -->
-
-        <link href="common-css/bootstrap.css" rel="stylesheet">
-
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+       
         <link href="common-css/font-icon.css" rel="stylesheet">
 
         <link href="03-regular-page/css/styles.css" rel="stylesheet">
@@ -42,25 +43,8 @@
 
                 <ul class="main-menu visible-on-click" id="main-menu">
                     <li><a href="index.html">HOME</a></li>
-                    <li class="drop-down"><a href="#!">OUR STORIES<i class="icon icon-caret-down"></i></a>
-
-                        <ul class="drop-down-menu">
-                            <li><a href="#">FEATURED</a></li>
-                            <li><a href="#">ABOUT</a></li>
-                            <li class="drop-down"><a href="#!">CATEGORIES<i class="icon icon-caret-right"></i></a>
-                                <ul class="drop-down-menu drop-down-inner">
-                                    <li><a href="#">FEATURED</a></li>
-                                    <li><a href="#">ABOUT</a></li>
-                                    <li><a href="#">CATEGORIES</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    </li>
-
-                    <li><a href="03-regular-page.html">THER WEDDING</a></li>
-                    <li><a href="#">GELLERY</a></li>
-                    <li><a href="02-rsvp.html">RSVP</a></li>
+                    <li><a href="${pageContext.request.contextPath}/guestpage">GUEST PAGE</a></li>
+                    <li><a href="${pageContext.request.contextPath}/logout">LOG OUT</a></li>
                 </ul><!-- main-menu -->
 
             </div><!-- container -->
@@ -72,7 +56,7 @@
                 <div class="display-table-cell">
                     <div class="slider-content">
 
-                        <h1 class="title">Gift List</h1>
+                        <h1 class="title">Guest page</h1>
 
 
                     </div><!-- slider-content-->
@@ -88,50 +72,63 @@
 
                         <div class="content">
 
-                            <form:form method="post" action="${pageContext.request.contextPath}/rg/save" modelAttribute="gift"
+                            <form:form method="post" action="${pageContext.request.contextPath}/guestpage/save" modelAttribute="giftGuestDTO"
                                        cssClass="form-horizontal">
                                 <div class="form-group">
-                                    <form:label path="nickname" cssClass="col-sm-2 control-label">I will attend lunch</form:label>
-                                        <div class="col-sm-10">
-                                       <input type="checkbox" name="lunch" value="lunch"/> 
-                                       
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <form:label path="nickname" cssClass="col-sm-2 control-label">I will attend party</form:label>
-                                        <div class="col-sm-10">
-                                        <input type="checkbox" name="party" value="party"/> 
-                                       
-                                    </div>
-                                </div>
-                                
-                                
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Description</th>
-                                        <th>select</th>
 
-                                    </tr>
-                                    <c:forEach items="${gifts}" var="gift">
+
+
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="lunch" value="lunch" value="" id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            I will attend lunch
+                                        </label>
+                                    </div>
+
+                  
+
+                                
+
+
+
+
+
+
+                            
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="party" value="party" id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            I will attend party
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <table class="table table-bordered">
                                         <tr>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th>select</th>
 
-                                            <td class="col-xs-1"><c:out value="${gift.name}"/></td>
-                                            <td class="col-xs-1"><c:out value="${gift.description}"/></td>
-                                            <td class="col-xs-1"><input type="radio" name="selectedgift" value="${gift.id}"/></td>
                                         </tr>
-                                    </c:forEach>
-                                </table>
+                                        <c:forEach items="${giftGuestDTO.gifts}" var="gift">
+                                            <tr>
+
+                                                <td class="col-xs-1"><c:out value="${gift.name}"/></td>
+                                                <td class="col-xs-1"><c:out value="${gift.description}"/></td>
+                                                <td class="col-xs-1"><input type="radio" name="selectedgift" value="${gift.id}"/></td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+                                </div>
                                 <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <input type="submit" value="Save" class="btn btn-primary">
-                                    </div>
+                                  
+                                        <input type="submit" value="Save" class="btn btn-primary btn-lg">
+                                       
+                                  
                                 </div>
                             </form:form>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="${pageContext.request.contextPath}/logout"><i class="fa fa-power-off"></i> Log out</a>
-                                </li>
-                            </ul>
 
                         </div><!-- content -->
 
