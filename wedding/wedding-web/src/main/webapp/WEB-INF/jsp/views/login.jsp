@@ -7,7 +7,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en">
     <head>
-        <title>TITLE</title>
+        <title>Klárka&AMP;Olda</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
@@ -39,7 +39,7 @@
                 <div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="icon icon-bars"></i></div>
 
                 <ul class="main-menu visible-on-click" id="main-menu">
-                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="${pageContext.request.contextPath}/">Domů</a></li>
                   
                 </ul><!-- main-menu -->
 
@@ -52,7 +52,7 @@
                 <div class="display-table-cell">
                     <div class="slider-content">
 
-                        <h1 class="title">Log in</h1>
+                        <h1 class="title">Přihlaste se!</h1>
 
 
                     </div><!-- slider-content-->
@@ -70,7 +70,7 @@
 
 
                             <form name="f" action="${pageContext.request.contextPath}/login" method="post" class="form-signin">
-                                <h2 class="form-signin-heading">Please sign in</h2>
+                                <h2 class="form-signin-heading">Ano, semhle</h2>
 
                                 <c:if test="${not empty alert_success}">
                                     <div class="alert alert-success" role="alert"><c:out value="${alert_success}"/></div>
@@ -94,7 +94,7 @@
                                        autofocus>
                                 <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
 
-                                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Vstoupit</button>
                                 <br>
 
 

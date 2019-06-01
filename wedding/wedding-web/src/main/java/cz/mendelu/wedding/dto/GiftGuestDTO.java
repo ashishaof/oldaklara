@@ -18,6 +18,7 @@ public class GiftGuestDTO {
     private String lunch;
     private String party;
     private Integer selectedgift;
+    private Boolean invitedLunch;
     private List<Gift> gifts=new ArrayList<>();
 
     public Integer getSelectedgift() {
@@ -62,6 +63,14 @@ public class GiftGuestDTO {
             return false;
         }
         return true;
+    }
+
+    public Boolean getInvitedLunch() {
+        return invitedLunch;
+    }
+
+    public void setInvitedLunch(Boolean invitedLunch) {
+        this.invitedLunch = invitedLunch;
     }
 
     

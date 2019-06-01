@@ -29,7 +29,7 @@ public class HomepageController {
     
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model, Principal principal) {
-        //guestDAO.save(new Guest("Olda","olda@olda.cz",passwordEncoder.encode("oldaolda")));
+       // guestDAO.save(new Guest("Karel","karel@karel.cz",passwordEncoder.encode("karelkarel")));
         return "index";
     }
 

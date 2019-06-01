@@ -6,6 +6,7 @@
 package cz.mendelu.wedding.dao;
 
 import cz.mendelu.wedding.domain.Gift;
+import cz.mendelu.wedding.domain.Guest;
 import cz.mendelu.wedding.utils.DaoLayerException;
 import org.springframework.stereotype.Repository;
 
@@ -69,6 +70,20 @@ public class GiftDAOimpl implements GiftDAO{
             throw new DaoLayerException(e.getMessage());
         }
 
+    }
+    
+    /**
+     *
+     * @param guestId
+     * @return
+     */
+    @Override
+    public List<Gift> findAllExceptBooked(Integer guestId) {
+        try {
+            return entityManager.createQuery("select g from Gift g left join g.guest where g.guest.id is null or g.guest.id = ?1", Gift.class).setParameter(1, guestId).getResultList();
+        } catch (Exception e) {
+            throw new DaoLayerException(e.getMessage());
+        }
     }
 
  

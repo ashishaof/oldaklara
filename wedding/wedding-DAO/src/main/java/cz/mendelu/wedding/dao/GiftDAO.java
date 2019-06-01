@@ -6,6 +6,7 @@
 package cz.mendelu.wedding.dao;
 
 import cz.mendelu.wedding.domain.Gift;
+import cz.mendelu.wedding.domain.Guest;
 import java.util.List;
 
 /**
@@ -19,6 +20,6 @@ public interface GiftDAO {
     void save(Gift gift);
 
     void delete(Gift gift);
-
     List<Gift> findAll();
+    List<Gift> findAllExceptBooked(Integer guestId);
 }

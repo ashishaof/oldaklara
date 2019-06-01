@@ -30,12 +30,16 @@ public class Guest {
     private String email;
 
     private String password;
-    
-    
+
+    private Boolean lunch = false;
+
+    private Boolean party = false;
+
+    private Boolean invitedLunch = true;
+
     @OneToOne
     private Gift gift;
-    
-    
+
     public Guest(String name, String email, String password) {
         this.name = name;
         this.email = email;
@@ -50,8 +54,6 @@ public class Guest {
         this.gift = gift;
     }
 
-    
-    
     public String getEmail() {
         return email;
     }
@@ -87,13 +89,39 @@ public class Guest {
         this.name = name;
     }
 
+    public Boolean getLunch() {
+        return lunch;
+    }
+
+    public void setLunch(Boolean lunch) {
+        this.lunch = lunch;
+    }
+
+    public Boolean getParty() {
+        return party;
+    }
+
+    public void setParty(Boolean party) {
+        this.party = party;
+    }
+
+    public Boolean getInvitedLunch() {
+        return invitedLunch;
+    }
+
+    public void setInvitedLunch(Boolean invitedLunch) {
+        this.invitedLunch = invitedLunch;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + Objects.hashCode(this.email);
-        hash = 89 * hash + Objects.hashCode(this.password);
-        hash = 89 * hash + Objects.hashCode(this.gift);
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.name);
+        hash = 79 * hash + Objects.hashCode(this.email);
+        hash = 79 * hash + Objects.hashCode(this.password);
+        hash = 79 * hash + Objects.hashCode(this.lunch);
+        hash = 79 * hash + Objects.hashCode(this.party);
+        hash = 79 * hash + Objects.hashCode(this.invitedLunch);
         return hash;
     }
 
@@ -115,14 +143,16 @@ public class Guest {
         if (!Objects.equals(this.password, other.password)) {
             return false;
         }
-        if (!Objects.equals(this.gift, other.gift)) {
+        if (!Objects.equals(this.lunch, other.lunch)) {
+            return false;
+        }
+        if (!Objects.equals(this.party, other.party)) {
+            return false;
+        }
+        if (!Objects.equals(this.invitedLunch, other.invitedLunch)) {
             return false;
         }
         return true;
     }
-
- 
-
-
 
 }

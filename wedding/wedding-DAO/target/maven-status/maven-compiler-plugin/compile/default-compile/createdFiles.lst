@@ -1,0 +1,8 @@
+cz/mendelu/wedding/dao/GuestDAO.class
+cz/mendelu/wedding/domain/Gift.class
+cz/mendelu/wedding/utils/DaoLayerException.class
+cz/mendelu/wedding/dao/GiftDAOimpl.class
+cz/mendelu/wedding/utils/DatabaseConfig.class
+cz/mendelu/wedding/dao/GuestDAOimpl.class
+cz/mendelu/wedding/domain/Guest.class
+cz/mendelu/wedding/dao/GiftDAO.class
