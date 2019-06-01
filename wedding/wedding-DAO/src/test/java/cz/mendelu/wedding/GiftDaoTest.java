@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.testng.annotations.Test;
 
 import static org.junit.Assert.*;
+
 /**
  *
  * @author BAKSHI
@@ -26,34 +27,70 @@ import static org.junit.Assert.*;
 @ContextConfiguration(classes = DatabaseConfig.class)
 @TestExecutionListeners(TransactionalTestExecutionListener.class)
 @Transactional
-public class GiftDaoTest extends AbstractTestNGSpringContextTests{
-    
+public class GiftDaoTest extends AbstractTestNGSpringContextTests {
+
     @Autowired
     private GiftDAO giftDao;
     @Autowired
     private GuestDAO guestDao;
+
     @Test
     public void testSave() {
-        Gift g=new Gift("tv","smartTV");
+        Gift g = new Gift("tv", "smartTV");
         giftDao.save(g);
-        
+
         Gift result = giftDao.findById(g.getId());
         assertEquals(g, result);
     }
-   
+
+    @Test
+    public void testDelete() {
+        Gift g = new Gift("tv", "smartTV");
+        giftDao.save(g);
+
+        giftDao.save(g);
+        giftDao.delete(g);
+
+        assertEquals(0, giftDao.findAll().size());
+    }
+
+    @Test
+    public void testFindAll() {
+        Gift g = new Gift("tv", "smartTV");
+
+        giftDao.save(g);
+
+        assertEquals(1, giftDao.findAll().size());
+    }
+    @Test
+    public void testfindAllExceptBooked() {
+        Gift g = new Gift("tv", "smartTV");
+
+        giftDao.save(g);
+
+        assertEquals(1, giftDao.findAllExceptBooked(Integer.SIZE).size());
+    }
+@Test
+    public void testfindById(int id) {
+        Gift g = new Gift("tv", "smartTV");
+        
+
+        giftDao.findById(id);
+
+        
+    }
     @Test
     public void testSaveWithGuest() {
-        Gift gift=new Gift("tv","smartTV");
+        Gift gift = new Gift("tv", "smartTV");
         giftDao.save(gift);
-        Guest guest=new Guest("ashish","ashish@gmail.com","1213456");
+        Guest guest = new Guest("ashish", "ashish@gmail.com", "1213456");
         guestDao.save(guest);
         Gift result = giftDao.findById(gift.getId());
         result.setGuest(guest);
         giftDao.save(result);
         Gift result1 = giftDao.findById(gift.getId());
         assertEquals(result, result1);
-        
+
     }
-    
-    
+
 }
