@@ -75,9 +75,10 @@ public class GiftDaoTest extends AbstractTestNGSpringContextTests {
         Gift g = new Gift("tv", "smartTV");
         
 
-        giftDao.findById(id);
-
+        giftDao.save(g);
         
+
+        assertEquals(g,giftDao.findById(id));
     }
     @Test
     public void testSaveWithGuest() {

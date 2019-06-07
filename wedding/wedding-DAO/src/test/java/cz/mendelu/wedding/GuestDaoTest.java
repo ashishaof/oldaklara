@@ -38,5 +38,45 @@ public class GuestDaoTest extends AbstractTestNGSpringContextTests{
         assertEquals(g, result);
     }
     
+    @Test
+    public void testDelete() {
+        Guest g=new Guest("fernando","fernando@gmail.com","password123");
+        guestDao.save(g);
+
+        guestDao.save(g);
+        guestDao.delete(g);
+
+        assertEquals(0, guestDao.findAll().size());
+    }
+
+    @Test
+    public void testFindAll() {
+        Guest g=new Guest("fernando","fernando@gmail.com","password123");
+        Guest e=new Guest("fernando1","fernando1@gmail.com","password123");
+
+        guestDao.save(g);
+        guestDao.save(e);
+
+        assertEquals(2, guestDao.findAll().size());
+    }
+        
+    @Test
+    public void testfindById(int id) {
+        Guest g=new Guest("fernando","fernando@gmail.com","password123");
+
+        guestDao.save(g);
+
+        assertEquals(g, guestDao.findById(id));
+    }
+        
+    @Test
+    public void testfindByEmail(String email) {
+        Guest g=new Guest("fernando",email,"password123");
+
+        guestDao.save(g);
+
+        assertEquals(g, guestDao.findByEmail(email));
+    }
+    
     
 }
