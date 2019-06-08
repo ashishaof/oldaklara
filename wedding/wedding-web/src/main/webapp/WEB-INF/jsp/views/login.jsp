@@ -39,7 +39,7 @@
                 <div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="icon icon-bars"></i></div>
 
                 <ul class="main-menu visible-on-click" id="main-menu">
-                    <li><a href="/">Domů</a></li>
+                    <li><a href="${pageContext.request.contextPath}/">Domů</a></li>
                   
                 </ul><!-- main-menu -->
 
@@ -69,10 +69,27 @@
                         <div class="content">
 
 
-                            <form name="f" action="/login" method="post" class="form-signin">
+                            <form name="f" action="${pageContext.request.contextPath}/login" method="post" class="form-signin">
                                 <h2 class="form-signin-heading">Ano, semhle</h2>
 
-                                <input type="hidden" name="_csrf" value="7a71954e-7665-4436-8c7f-17bd1e122c0f"/>
+                                <c:if test="${not empty alert_success}">
+                                    <div class="alert alert-success" role="alert"><c:out value="${alert_success}"/></div>
+                                </c:if>
+
+                                <c:if test="${param.error ne null}">
+                                    <div class="alert alert-danger">
+                                        Invalid username or password.
+                                    </div>
+                                </c:if>
+
+                                <c:if test="${param.logout ne null}">
+                                    <div class="alert alert-info">
+                                        You have been logged out.
+                                    </div>
+                                </c:if>
+
+
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 <input type="email" id="username" name="username" class="form-control" placeholder="Email address" required
                                        autofocus>
                                 <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
@@ -99,7 +116,10 @@
                     <a class="logo" href="#"><img src="images/logo-black.png" alt="Logo Image"></a>
                     <i class="icon icon-star"></i>
                 </div>
-              <p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+                
+
+                <p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 
