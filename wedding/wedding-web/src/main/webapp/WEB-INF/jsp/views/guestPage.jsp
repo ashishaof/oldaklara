@@ -42,8 +42,8 @@
                 <div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="icon icon-bars"></i></div>
 
                 <ul class="main-menu visible-on-click" id="main-menu">
-                    <li><a href="${pageContext.request.contextPath}/">Domů</a></li>
-                    <li><a href="${pageContext.request.contextPath}/logout">Odhlásit se</a></li>
+                    <li><a href="/">Domů</a></li>
+                    <li><a href="/logout">Odhlásit se</a></li>
                 </ul><!-- main-menu -->
 
             </div><!-- container -->
@@ -71,26 +71,18 @@
                     <div class="col-sm-12">
 
                         <div class="content">
-                           <c:if test="${not empty alert_success}">
-                                <div class="alert alert-success" role="alert"><c:out value="${alert_success}"/></div>
-                            </c:if>
-                            <form:form method="post" action="${pageContext.request.contextPath}/guestpage/save" modelAttribute="giftGuestDTO"
-                                       cssClass="form-horizontal">
-                                <div class="form-group">
+                           <form id="giftGuestDTO" class="form-horizontal" action="/guestpage/save" method="post"><div class="form-group">
 
 
 
-                            <c:if test="${giftGuestDTO.invitedLunch eq true}"> 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="lunch" value="lunch" value="" id="defaultCheck1"   <c:if test="${not empty giftGuestDTO.lunch}"> checked </c:if> >
+                            <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="lunch" value="lunch" value="" id="defaultCheck1"    >
                                         <label class="form-check-label" for="defaultCheck1">
                                             ANO, dojdu na hostinu
                                         </label>
                                     </div>
-                            </c:if>
-
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="party" value="party" id="defaultCheck1" <c:if test="${not empty giftGuestDTO.party}"> checked </c:if> >
+                            <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="party" value="party" id="defaultCheck1"  >
                                         <label class="form-check-label" for="defaultCheck1">
                                             ANO, dojdu na párty
                                         </label>
@@ -104,15 +96,31 @@
                                             <th>Vybrán</th>
 
                                         </tr>
-                                        <c:forEach items="${giftGuestDTO.gifts}" var="gift">
-                                            <tr>
+                                        <tr>
 
-                                                <td class="col-xs-1"><c:out value="${gift.name}"/></td>
-                                                <td class="col-xs-1"><c:out value="${gift.description}"/></td>
-                                                <td class="col-xs-1"><input type="radio" name="selectedgift" value="${gift.id}" <c:if test="${giftGuestDTO.selectedgift eq gift.id}"> checked </c:if> /></td>
+                                                <td class="col-xs-1">tv</td>
+                                                <td class="col-xs-1">smartTV1</td>
+                                                <td class="col-xs-1"><input type="radio" name="selectedgift" value="11"  /></td>
                                             </tr>
-                                        </c:forEach>
-                                    </table>
+                                        <tr>
+
+                                                <td class="col-xs-1">tv</td>
+                                                <td class="col-xs-1">smartTV2</td>
+                                                <td class="col-xs-1"><input type="radio" name="selectedgift" value="12"  /></td>
+                                            </tr>
+                                        <tr>
+
+                                                <td class="col-xs-1">tv</td>
+                                                <td class="col-xs-1">smartTV3</td>
+                                                <td class="col-xs-1"><input type="radio" name="selectedgift" value="13"  /></td>
+                                            </tr>
+                                        <tr>
+
+                                                <td class="col-xs-1">testName</td>
+                                                <td class="col-xs-1">testDescription</td>
+                                                <td class="col-xs-1"><input type="radio" name="selectedgift" value="1"  /></td>
+                                            </tr>
+                                        </table>
                                 </div>
                             
                                 <div class="form-group">
@@ -121,9 +129,9 @@
 
 
                                 </div>
-                            </form:form>
-
-                        </div><!-- content -->
+                            <div>
+<input type="hidden" name="_csrf" value="65c31f8f-7285-49b2-b34a-8e503c77bb6b" />
+</div></form></div><!-- content -->
 
                     </div><!-- col-sm-12 -->
                 </div><!-- row -->
