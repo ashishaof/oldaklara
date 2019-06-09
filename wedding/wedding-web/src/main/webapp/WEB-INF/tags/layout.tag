@@ -19,7 +19,6 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-
 <head>
     <title>Klárka&AMP;Olda</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,10 +43,12 @@
 	<link href="01-homepage/css/styles.css" rel="stylesheet">
 	
 	<link href="01-homepage/css/responsive.css" rel="stylesheet">
+        
+        <jsp:invoke fragment="body"/>
 	
 </head>
 
-<jsp:invoke fragment="body"/>
+
 
   <footer>
 		<div class="container center-text">
