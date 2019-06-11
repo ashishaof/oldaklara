@@ -47,25 +47,27 @@
 	
 </head>
 
-        <jsp:invoke fragment="body"/>
+
+<jsp:invoke fragment="body"/>
 
 
-  <footer>
-		<div class="container center-text">
-			
-			<div class="logo-wrapper">
-				<a class="logo" href="#"><img src="images/logo-black.png" alt="Logo Image"></a>
-				<i class="icon icon-star"></i>
-			</div>
-			
-		
-			
-			
-			
-			
-			<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+<footer>
+	<div class="container center-text">
+
+		<div class="logo-wrapper">
+			<a class="logo" href="#"><img src="images/logo-black.png" alt="Logo Image"></a>
+			<i class="icon icon-star"></i>
+		</div>
+
+
+
+
+
+
+		<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-			
-		</div><!-- container -->
-	</footer>
+
+	</div><!-- container -->
+</footer>
