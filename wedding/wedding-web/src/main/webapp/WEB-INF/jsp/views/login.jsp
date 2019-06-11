@@ -71,7 +71,5 @@
         </div><!-- container -->
     </section><!-- section -->
 
-</
-
 </jsp:attribute>
 </my:layout>
