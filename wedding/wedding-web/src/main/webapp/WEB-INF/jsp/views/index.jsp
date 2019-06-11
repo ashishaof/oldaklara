@@ -200,8 +200,6 @@
 		
 	
 	</section><!-- section -->
-	
-	</
 		
 </jsp:attribute>
 </my:layout>
