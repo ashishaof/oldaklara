@@ -44,10 +44,10 @@
 	
 	<link href="01-homepage/css/responsive.css" rel="stylesheet">
         
-        <jsp:invoke fragment="body"/>
 	
 </head>
 
+        <jsp:invoke fragment="body"/>
 
 
   <footer>
