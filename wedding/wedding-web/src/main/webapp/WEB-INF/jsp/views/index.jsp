@@ -1,27 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
-<html lang="en">
     
 <my:layout title="Klárka&AMP;Olda">
     
-<body>
-	
-	<header>
-
-            <div class="container">
-
-                <a class="logo" href="#"><img src="images/logo-white.png" alt="Logo"></a>
-
-                <div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="icon icon-bars"></i></div>
-
-                <ul class="main-menu visible-on-click" id="main-menu">
-                   <li><a href="/login">Vstoupit jako host</a></li>
-                </ul><!-- main-menu -->
-
-            </div><!-- container -->
-        </header>
-	
+<jsp:attribute name="body">	
 	
 	<div class="main-slider">
 		<div class="display-table center-text">
@@ -220,22 +203,5 @@
 	
 	</
 		
-	
-	
-	<!-- SCIPTS -->
-	
-	<script src="common-js/jquery-3.1.1.min.js"></script>
-	
-	<script src="common-js/tether.min.js"></script>
-	
-	<script src="common-js/bootstrap.js"></script>
-	
-	<script src="common-js/jquery.countdown.min.js"></script>
-	
-	<script src="common-js/jquery.fluidbox.min.js"></script>
-	
-	
-	<script src="common-js/scripts.js"></script>
-</body>
+</jsp:attribute>
 </my:layout>
-</html>
